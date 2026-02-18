@@ -146,7 +146,8 @@ section {
     /* Reduce vertical padding to tighten up whitespace between sections */
     /* Tighten up whitespace between sections further */
     /* Reduce vertical padding further to minimize whitespace between sections */
-    padding: 2rem 1.5rem;
+   padding: 1.5rem 1rem;
+
 }
 
 .about, .amenities, .location, .contact {
@@ -166,7 +167,7 @@ section p {
     max-width: 800px;
     /* Reduce bottom margin of paragraphs for tighter spacing */
     /* Slightly reduce bottom margin of paragraphs for a more compact look */
-    margin: 0 auto 0.75rem auto;
+    margin: 0 auto 0.0.5rem auto;
 }
 
 /* Amenities cards */
