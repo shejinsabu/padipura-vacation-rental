@@ -1,23 +1,23 @@
 /*
  * Padipura Vacation Rental website styles
+ *
+ * This stylesheet provides a clean and modern look for the single page
+ * property site. It uses CSS variables for consistent colour theming,
+ * responsive layouts using flex and grid, and subtle shadows to enhance
+ * card elements. Typography is handled through Google Fonts (Inter and
+ * Playfair Display) and scales gracefully on different screen sizes.
  */
 
-/* ===============================
-   COLOUR PALETTE
-================================= */
-
+/* Colour palette */
 :root {
-    --primary-colour: #2c3e50;
-    --secondary-colour: #6fbf8e;
-    --light-background: #f9f9f9;
-    --card-bg: #ffffff;
-    --text-colour: #333333;
+    --primary-colour: #2c3e50;     /* dark blue for headings and footer */
+    --secondary-colour: #6fbf8e;   /* muted green for buttons and highlights */
+    --light-background: #f9f9f9;   /* light background for sections */
+    --card-bg: #ffffff;            /* white for cards */
+    --text-colour: #333333;        /* standard body text */
 }
 
-/* ===============================
-   RESET & BASE
-================================= */
-
+/* Reset & base styles */
 * {
     margin: 0;
     padding: 0;
@@ -34,23 +34,22 @@ body {
 
 img {
     max-width: 100%;
+    height: auto;
     display: block;
 }
 
-/* ===============================
-   NAVBAR
-================================= */
-
+/* Navigation bar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    /* Slightly smaller padding for a slimmer navigation bar */
+    padding: 0.75rem 1.5rem;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.5);
     color: #ffffff;
     z-index: 1000;
     backdrop-filter: blur(6px);
@@ -65,7 +64,8 @@ img {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    /* Slightly tighter spacing between navigation items */
+    gap: 1rem;
 }
 
 .nav-links a {
@@ -79,13 +79,13 @@ img {
     color: var(--secondary-colour);
 }
 
-/* ===============================
-   HERO SECTION
-================================= */
-
+/* Hero section */
 .hero {
+    /* Full‑screen hero with background image.  Prefix the path with the
+       repository folder name to ensure the image loads correctly on
+       GitHub Pages. */
     height: 100vh;
-    background: url('/padipura-vacation-rental/hero.jpg') no-repeat center center/cover;
+    background: url('/padipura-vacation-rental/images/hero.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -97,7 +97,10 @@ img {
 .hero::after {
     content: '';
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
@@ -135,24 +138,19 @@ img {
     background-color: var(--primary-colour);
 }
 
-/* ===============================
-   SECTIONS
-================================= */
-
+/* Section styling */
 section {
-    padding: 4rem 2rem;
+    /* Reduce vertical padding to tighten up whitespace between sections */
+    padding: 3rem 1.5rem;
 }
 
-.about,
-.amenities,
-.location,
-.contact {
+.about, .amenities, .location, .contact {
     background-color: var(--light-background);
 }
 
 section h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; /* tighten spacing below section headings */
     font-family: 'Playfair Display', serif;
     font-size: 2.25rem;
     color: var(--primary-colour);
@@ -160,17 +158,16 @@ section h2 {
 
 section p {
     max-width: 800px;
-    margin: 0 auto 1.5rem auto;
+    /* Reduce bottom margin of paragraphs for tighter spacing */
+    margin: 0 auto 1rem auto;
 }
 
-/* ===============================
-   AMENITIES
-================================= */
-
+/* Amenities cards */
 .amenity-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+    /* Reduce the gap between cards for a more balanced layout */
+    gap: 1rem;
     max-width: 1100px;
     margin: 0 auto;
 }
@@ -179,7 +176,7 @@ section p {
     background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .amenity h3 {
@@ -190,43 +187,26 @@ section p {
 
 .amenity p {
     font-size: 0.95rem;
+    color: var(--text-colour);
     margin: 0;
 }
 
-/* ===============================
-   GALLERY (FIXED EVEN SPACING)
-================================= */
-
-.gallery {
-    background-color: var(--card-bg);
-}
-
+/* Gallery grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* Slightly smaller gap between gallery images */
+    gap: 0.75rem;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .gallery-grid img {
-    width: 100%;
-    height: 300px;           /* uniform tile height */
-    object-fit: cover;       /* crops vertical images nicely */
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.gallery-grid img:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-}
-
-/* ===============================
-   MAP
-================================= */
-
+/* Map container */
 .map-container {
     margin: 0 auto;
     max-width: 900px;
@@ -235,10 +215,7 @@ section p {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* ===============================
-   CONTACT
-================================= */
-
+/* Contact */
 .contact-info p {
     margin: 0.5rem 0;
     font-size: 1rem;
@@ -254,10 +231,7 @@ section p {
     text-decoration: underline;
 }
 
-/* ===============================
-   FOOTER
-================================= */
-
+/* Footer */
 .footer {
     text-align: center;
     padding: 2rem;
@@ -266,29 +240,15 @@ section p {
     font-size: 0.9rem;
 }
 
-/* ===============================
-   RESPONSIVE
-================================= */
-
+/* Media queries */
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.25rem;
     }
-
     .hero-content p {
         font-size: 1rem;
     }
-
     .btn {
         padding: 0.5rem 1rem;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-    }
-
-    .gallery-grid img {
-        height: 220px;
     }
 }
