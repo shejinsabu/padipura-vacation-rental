@@ -145,7 +145,8 @@ img {
 section {
     /* Reduce vertical padding to tighten up whitespace between sections */
     /* Tighten up whitespace between sections further */
-    padding: 2.5rem 1.5rem;
+    /* Reduce vertical padding further to minimize whitespace between sections */
+    padding: 2rem 1.5rem;
 }
 
 .about, .amenities, .location, .contact {
@@ -154,7 +155,8 @@ section {
 
 section h2 {
     text-align: center;
-    margin-bottom: 1.5rem; /* tighten spacing below section headings */
+    /* Further tighten spacing below section headings */
+    margin-bottom: 1rem;
     font-family: 'Playfair Display', serif;
     font-size: 2.25rem;
     color: var(--primary-colour);
@@ -163,7 +165,8 @@ section h2 {
 section p {
     max-width: 800px;
     /* Reduce bottom margin of paragraphs for tighter spacing */
-    margin: 0 auto 1rem auto;
+    /* Slightly reduce bottom margin of paragraphs for a more compact look */
+    margin: 0 auto 0.75rem auto;
 }
 
 /* Amenities cards */
