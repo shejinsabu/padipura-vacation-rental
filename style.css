@@ -1,23 +1,23 @@
 /*
  * Padipura Vacation Rental website styles
- *
- * This stylesheet provides a clean and modern look for the single page
- * property site. It uses CSS variables for consistent colour theming,
- * responsive layouts using flex and grid, and subtle shadows to enhance
- * card elements. Typography is handled through Google Fonts (Inter and
- * Playfair Display) and scales gracefully on different screen sizes.
  */
 
-/* Colour palette */
+/* ===============================
+   COLOUR PALETTE
+================================= */
+
 :root {
-    --primary-colour: #2c3e50;     /* dark blue for headings and footer */
-    --secondary-colour: #6fbf8e;   /* muted green for buttons and highlights */
-    --light-background: #f9f9f9;   /* light background for sections */
-    --card-bg: #ffffff;            /* white for cards */
-    --text-colour: #333333;        /* standard body text */
+    --primary-colour: #2c3e50;
+    --secondary-colour: #6fbf8e;
+    --light-background: #f9f9f9;
+    --card-bg: #ffffff;
+    --text-colour: #333333;
 }
 
-/* Reset & base styles */
+/* ===============================
+   RESET & BASE
+================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -34,11 +34,13 @@ body {
 
 img {
     max-width: 100%;
-    height: auto;
     display: block;
 }
 
-/* Navigation bar */
+/* ===============================
+   NAVBAR
+================================= */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -48,7 +50,7 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.55);
     color: #ffffff;
     z-index: 1000;
     backdrop-filter: blur(6px);
@@ -77,10 +79,13 @@ img {
     color: var(--secondary-colour);
 }
 
-/* Hero section */
+/* ===============================
+   HERO SECTION
+================================= */
+
 .hero {
     height: 100vh;
-    background: url('images/hero.jpg') no-repeat center center/cover;
+    background: url('/padipura-vacation-rental/hero.jpg') no-repeat center center/cover;
     position: relative;
     display: flex;
     align-items: center;
@@ -92,10 +97,7 @@ img {
 .hero::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
@@ -133,12 +135,18 @@ img {
     background-color: var(--primary-colour);
 }
 
-/* Section styling */
+/* ===============================
+   SECTIONS
+================================= */
+
 section {
     padding: 4rem 2rem;
 }
 
-.about, .amenities, .location, .contact {
+.about,
+.amenities,
+.location,
+.contact {
     background-color: var(--light-background);
 }
 
@@ -155,7 +163,10 @@ section p {
     margin: 0 auto 1.5rem auto;
 }
 
-/* Amenities cards */
+/* ===============================
+   AMENITIES
+================================= */
+
 .amenity-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -168,7 +179,7 @@ section p {
     background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .amenity h3 {
@@ -179,25 +190,43 @@ section p {
 
 .amenity p {
     font-size: 0.95rem;
-    color: var(--text-colour);
     margin: 0;
 }
 
-/* Gallery grid */
+/* ===============================
+   GALLERY (FIXED EVEN SPACING)
+================================= */
+
+.gallery {
+    background-color: var(--card-bg);
+}
+
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .gallery-grid img {
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 300px;           /* uniform tile height */
+    object-fit: cover;       /* crops vertical images nicely */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Map container */
+.gallery-grid img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* ===============================
+   MAP
+================================= */
+
 .map-container {
     margin: 0 auto;
     max-width: 900px;
@@ -206,7 +235,10 @@ section p {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Contact */
+/* ===============================
+   CONTACT
+================================= */
+
 .contact-info p {
     margin: 0.5rem 0;
     font-size: 1rem;
@@ -222,7 +254,10 @@ section p {
     text-decoration: underline;
 }
 
-/* Footer */
+/* ===============================
+   FOOTER
+================================= */
+
 .footer {
     text-align: center;
     padding: 2rem;
@@ -231,15 +266,29 @@ section p {
     font-size: 0.9rem;
 }
 
-/* Media queries */
+/* ===============================
+   RESPONSIVE
+================================= */
+
 @media (max-width: 768px) {
     .hero-content h1 {
         font-size: 2.25rem;
     }
+
     .hero-content p {
         font-size: 1rem;
     }
+
     .btn {
         padding: 0.5rem 1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .gallery-grid img {
+        height: 220px;
     }
 }
