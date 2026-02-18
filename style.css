@@ -1,0 +1,245 @@
+/*
+ * Padipura Vacation Rental website styles
+ *
+ * This stylesheet provides a clean and modern look for the single page
+ * property site. It uses CSS variables for consistent colour theming,
+ * responsive layouts using flex and grid, and subtle shadows to enhance
+ * card elements. Typography is handled through Google Fonts (Inter and
+ * Playfair Display) and scales gracefully on different screen sizes.
+ */
+
+/* Colour palette */
+:root {
+    --primary-colour: #2c3e50;     /* dark blue for headings and footer */
+    --secondary-colour: #6fbf8e;   /* muted green for buttons and highlights */
+    --light-background: #f9f9f9;   /* light background for sections */
+    --card-bg: #ffffff;            /* white for cards */
+    --text-colour: #333333;        /* standard body text */
+}
+
+/* Reset & base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-colour);
+    background-color: var(--card-bg);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    z-index: 1000;
+    backdrop-filter: blur(6px);
+}
+
+.navbar .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-colour);
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    background: url('images/hero.jpg') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--secondary-colour);
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--primary-colour);
+}
+
+/* Section styling */
+section {
+    padding: 4rem 2rem;
+}
+
+.about, .amenities, .location, .contact {
+    background-color: var(--light-background);
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.25rem;
+    color: var(--primary-colour);
+}
+
+section p {
+    max-width: 800px;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Amenities cards */
+.amenity-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.amenity {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.amenity h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--primary-colour);
+}
+
+.amenity p {
+    font-size: 0.95rem;
+    color: var(--text-colour);
+    margin: 0;
+}
+
+/* Gallery grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-grid img {
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Map container */
+.map-container {
+    margin: 0 auto;
+    max-width: 900px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact */
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.contact-info a {
+    color: var(--primary-colour);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--primary-colour);
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.25rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .btn {
+        padding: 0.5rem 1rem;
+    }
+}
